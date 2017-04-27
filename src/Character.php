@@ -1,6 +1,6 @@
 <?php
 
-namespace JeroenDesloovere\CharacterConverter\Component;
+namespace JeroenDesloovere\CharacterCollection;
 
 class Character
 {

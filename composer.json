@@ -1,8 +1,8 @@
 {
-    "name": "jeroendesloovere/character-converter",
+    "name": "jeroendesloovere/character-collection",
     "description": "Converts a sentence to a CharacterCollection",
     "type": "library",
-    "homepage": "https://github.com/jeroendesloovere/character-converter",
+    "homepage": "https://github.com/jeroendesloovere/character-collection",
     "license": "MIT",
     "authors": [
         {
@@ -20,6 +20,6 @@
         "phpunit/phpunit": "4.6.*"
     },
     "autoload": {
-        "psr-4": { "JeroenDesloovere\\CharacterConverter\\": "src/" }
+        "psr-4": { "JeroenDesloovere\\CharacterCollection\\": "src/" }
     }
 }

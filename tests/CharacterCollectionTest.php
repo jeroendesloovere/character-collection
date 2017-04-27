@@ -1,27 +1,17 @@
 <?php
 
-namespace JeroenDesloovere\CharacterConverter;
+namespace JeroenDesloovere\CharacterCollection;
 
 // required to load
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use JeroenDesloovere\CharacterConverter\Component\CharacterCollection;
-
-class CharacterConverterTest extends \PHPUnit_Framework_TestCase
+class CharacterCollectionTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var CharacterConverter */
-    private $characterConverter;
-
-    public function setUp()
-    {
-        $this->characterConverter = new CharacterConverter();
-    }
-
     public function testCharacters()
     {
         $sentence = 'this is a test';
 
-        $correctResult = new CharacterCollection();
+        $correctResult = new CharacterCollection('');
         $correctResult->add(0, 't');
         $correctResult->add(1, 'h');
         $correctResult->add(2, 'i');
@@ -37,7 +27,7 @@ class CharacterConverterTest extends \PHPUnit_Framework_TestCase
         $correctResult->add(12, 's');
         $correctResult->add(13, 't');
 
-        $charactersCollection = $this->characterConverter->convert($sentence);
+        $charactersCollection = new CharacterCollection($sentence);
 
         $this->assertEquals($correctResult, $charactersCollection);
         $this->assertEquals($sentence, (string) $charactersCollection);

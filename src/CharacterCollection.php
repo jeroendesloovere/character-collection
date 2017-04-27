@@ -1,6 +1,6 @@
 <?php
 
-namespace JeroenDesloovere\CharacterConverter\Component;
+namespace JeroenDesloovere\CharacterCollection;
 
 class CharacterCollection
 {
@@ -8,11 +8,28 @@ class CharacterCollection
     private $characters;
 
     /**
+     * @param string $sentence
+     */
+    public function __construct(string $sentence)
+    {
+        /** @var array $characters */
+        $characters = str_split($sentence);
+
+        foreach ($characters as $position => $character) {
+            $this->add($position, $character);
+        }
+    }
+
+    /**
      * @param int $position
      * @param string $character
      */
     public function add(int $position, string $character)
     {
+        if ($character === '') {
+            return;
+        }
+
         if (!isset($this->characters[$character])) {
             $this->characters[$character] = new Character($character);
         }
