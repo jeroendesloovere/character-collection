@@ -10,34 +10,22 @@ class Character
     /** @var array */
     private $positions;
 
-    /**
-     * @param string $value
-     */
     public function __construct(string $value)
     {
         $this->value = $value;
     }
 
-    /**
-     * @param int $position
-     */
     public function addPosition(int $position)
     {
         $this->positions[] = $position;
     }
 
-    /**
-     * @return array
-     */
-    public function getPositions()
+    public function getPositions(): array
     {
         return $this->positions;
     }
 
-    /**
-     * @return string
-     */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }

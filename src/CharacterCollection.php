@@ -7,9 +7,6 @@ class CharacterCollection
     /** @var array */
     private $characters;
 
-    /**
-     * @param string $sentence
-     */
     public function __construct(string $sentence)
     {
         /** @var array $characters */
@@ -20,26 +17,6 @@ class CharacterCollection
         }
     }
 
-    /**
-     * @param int $position
-     * @param string $character
-     */
-    public function add(int $position, string $character)
-    {
-        if ($character === '') {
-            return;
-        }
-
-        if (!isset($this->characters[$character])) {
-            $this->characters[$character] = new Character($character);
-        }
-
-        $this->characters[$character]->addPosition($position);
-    }
-
-    /**
-     * @return string
-     */
     public function __toString(): string
     {
         $sentences = [];
@@ -52,5 +29,27 @@ class CharacterCollection
         ksort($sentences);
 
         return implode($sentences);
+    }
+
+    public function add(int $position, string $character): void
+    {
+        if ($character === '') {
+            return;
+        }
+
+        if (!isset($this->characters[$character])) {
+            $this->characters[$character] = new Character($character);
+        }
+
+        $this->characters[$character]->addPosition($position);
+    }
+
+    public function get(string $character): Character
+    {
+        if (!array_key_exists($character, $this->characters)) {
+            throw Exception::characterNotFound($character);
+        }
+
+        return $this->characters[$character];
     }
 }
